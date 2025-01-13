@@ -10,6 +10,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LevenshteinTest
 {
+    [DisassemblyDiagnoser]
+
     public class Levenshtein
     {
         public string[] args;
@@ -77,7 +79,7 @@ namespace LevenshteinTest
         static int levenshteinDistanceOld(ReadOnlySpan<char> str1, ReadOnlySpan<char> str2)
         {
             // Early termination checks
-            if (str1 == str2)
+            if (str1.SequenceEqual(str2))
             {
                 return 0;
             }
